@@ -1,0 +1,123 @@
+15:50:08 **** Build of configuration Debug for project test_control_1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/dma_bd/dma_bd.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dma_bd/dma_bd.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../test_control_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/dma_bd/dma_bd.d" -MT"src/dma_bd/dma_bd.o" -o "src/dma_bd/dma_bd.o" "../src/dma_bd/dma_bd.c"
+'Finished building: ../src/dma_bd/dma_bd.c'
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../test_control_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'judge_command':
+../src/helloworld.c:494:19: warning: passing argument 2 of 'strcmp1' from incompatible pointer type [-Wincompatible-pointer-types]
+  if(strcmp1(souce,&C_CMD_IDN)==1)
+                   ^
+../src/helloworld.c:394:4: note: expected 'const u8 * {aka const unsigned char *}' but argument is of type 'u8 (*)[6] {aka unsigned char (*)[6]}'
+ u8 strcmp1(const u8 *souce,const u8 *destination)
+    ^~~~~~~
+../src/helloworld.c:497:24: warning: passing argument 2 of 'strcmp1' from incompatible pointer type [-Wincompatible-pointer-types]
+  else if(strcmp1(souce,&C_CMD_15SW)==1)
+                        ^
+../src/helloworld.c:394:4: note: expected 'const u8 * {aka const unsigned char *}' but argument is of type 'u8 (*)[6] {aka unsigned char (*)[6]}'
+ u8 strcmp1(const u8 *souce,const u8 *destination)
+    ^~~~~~~
+../src/helloworld.c:500:24: warning: passing argument 2 of 'strcmp1' from incompatible pointer type [-Wincompatible-pointer-types]
+  else if(strcmp1(souce,&C_CMD_SET_GAIN)==1)
+                        ^
+../src/helloworld.c:394:4: note: expected 'const u8 * {aka const unsigned char *}' but argument is of type 'u8 (*)[6] {aka unsigned char (*)[6]}'
+ u8 strcmp1(const u8 *souce,const u8 *destination)
+    ^~~~~~~
+../src/helloworld.c:503:24: warning: passing argument 2 of 'strcmp1' from incompatible pointer type [-Wincompatible-pointer-types]
+  else if(strcmp1(souce,&C_CMD_GET_ADC)==1)
+                        ^
+../src/helloworld.c:394:4: note: expected 'const u8 * {aka const unsigned char *}' but argument is of type 'u8 (*)[5] {aka unsigned char (*)[5]}'
+ u8 strcmp1(const u8 *souce,const u8 *destination)
+    ^~~~~~~
+../src/helloworld.c: In function 'UART_process':
+../src/helloworld.c:517:25: warning: pointer targets in passing argument 2 of 'UartPsSend' differ in signedness [-Wpointer-sign]
+    UartPsSend(&Uart_Ps, "lsp_test!!!",12);
+                         ^~~~~~~~~~~~~
+../src/helloworld.c:432:5: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'char *'
+ int UartPsSend(XUartPs *InstancePtr, u8 *BufferPtr, u32 NumBytes)
+     ^~~~~~~~~~
+../src/helloworld.c:520:34: warning: pointer targets in passing argument 2 of 'strcmp1' differ in signedness [-Wpointer-sign]
+    if(strcmp1(&UART_RX_Buffer[5],"ON")==1)
+                                  ^~~~
+../src/helloworld.c:394:4: note: expected 'const u8 * {aka const unsigned char *}' but argument is of type 'char *'
+ u8 strcmp1(const u8 *souce,const u8 *destination)
+    ^~~~~~~
+../src/helloworld.c:525:39: warning: pointer targets in passing argument 2 of 'strcmp1' differ in signedness [-Wpointer-sign]
+    else if(strcmp1(&UART_RX_Buffer[5],"OFF")==1)
+                                       ^~~~~
+../src/helloworld.c:394:4: note: expected 'const u8 * {aka const unsigned char *}' but argument is of type 'char *'
+ u8 strcmp1(const u8 *souce,const u8 *destination)
+    ^~~~~~~
+../src/helloworld.c:532:16: warning: passing argument 1 of 'strtounchar' from incompatible pointer type [-Wincompatible-pointer-types]
+    strtounchar(&UART_RX_Buffer, &setvalue);
+                ^
+../src/helloworld.c:410:4: note: expected 'u8 * {aka unsigned char *}' but argument is of type 'u8 (*)[4096] {aka unsigned char (*)[4096]}'
+ u8 strtounchar(u8 str[], u8 *num)
+    ^~~~~~~~~~~
+../src/helloworld.c:512:5: warning: variable 'temp_char' set but not used [-Wunused-but-set-variable]
+  u8 temp_char=0;
+     ^~~~~~~~~
+../src/helloworld.c: In function 'uart_init':
+../src/helloworld.c:547:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c: In function 'XAxiDma_Initial':
+../src/helloworld.c:578:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/helloworld.c: In function 'uart_intr_handler':
+../src/helloworld.c:597:18: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+  u8 *send_temp = "abcd";
+                  ^~~~~~
+../src/helloworld.c:597:6: warning: unused variable 'send_temp' [-Wunused-variable]
+  u8 *send_temp = "abcd";
+      ^~~~~~~~~
+../src/helloworld.c: In function 'uart_intr_init':
+../src/helloworld.c:654:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c: In function 'XAxiDma_intr_init':
+../src/helloworld.c:676:6: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  int status;
+      ^~~~~~
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:757:6: warning: unused variable 'KeyData' [-Wunused-variable]
+  u32 KeyData = 0;
+      ^~~~~~~
+../src/helloworld.c:753:9: warning: unused variable 'i' [-Wunused-variable]
+     u32 i =0;
+         ^
+../src/helloworld.c:752:8: warning: unused variable 'da' [-Wunused-variable]
+     u8 da = 255;
+        ^~
+At top level:
+../src/helloworld.c:280:13: warning: 'TimerDisableIntrSystem' defined but not used [-Wunused-function]
+ static void TimerDisableIntrSystem(XScuGic *IntcInstancePtr, u16 TimerIntrId)
+             ^~~~~~~~~~~~~~~~~~~~~~
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../test_control_1_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: test_control_1.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../test_control_1_bsp/ps7_cortexa9_0/lib -o "test_control_1.elf"  ./src/dma_bd/dma_bd.o  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: test_control_1.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size test_control_1.elf  |tee "test_control_1.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  98120	   3584	8442416	8544120	 825f78	test_control_1.elf
+'Finished building: test_control_1.elf.size'
+' '
+
+15:50:11 Build Finished (took 3s.36ms)
+
