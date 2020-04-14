@@ -751,7 +751,7 @@ int main()
 {
     u8 da = 255;
     u32 i =0;
-
+    int low_level_time = 0;
 	int interval = data_length, data_length_index = 0;
 	int point = 0;
 	u32 KeyData = 0;
@@ -782,7 +782,12 @@ int main()
     	if (XGpio_DiscreteRead(&VGCLK, 1)){
         	usleep(1000);
     	}else{
-    		End_Recieve = 1;
+    		usleep(1000);
+    		if(low_level_time++ == 100)//100*1000=100ms
+    		{
+    			End_Recieve = 1;
+    			low_level_time = 0;
+    		}
     	}
 
     	if(End_Recieve == 1)
