@@ -776,6 +776,7 @@ int main()
 
     CreateBdChain(Ch0BdChainBuffer, BD_COUNT, ADC_BYTE*ADC_SAMPLE_NUM, (u8 *)CH0DmaRxBuffer, RXPATH) ;
 
+    printf("wait low level from key...\n");
     while (1)
     {
     	if (XGpio_DiscreteRead(&VGCLK, 1)){
